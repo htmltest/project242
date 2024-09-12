@@ -274,5 +274,95 @@ function updateProgram() {
         }
         $('.program-content-halls').html(hallsHTML);
 
+        var eventsHTML =    '<div class="program-events">';
+
+        var heightHour = 112;
+
+        for (var i = 0; i < newHalls.length; i++) {
+            var curHall = newHalls[i];
+            eventsHTML +=          '<div class="program-events-hall">';
+            for (var j = 0; j < curEvents.length; j++) {
+                var curEvent = curEvents[j];
+                if (curEvent.hall == curHall.id) {
+                    var startHour = Number(curEvent.start.split(':')[0]);
+                    var startMinutes = Number(curEvent.start.split(':')[1]);
+
+                    var endHour = Number(curEvent.end.split(':')[0]);
+                    var endMinutes = Number(curEvent.end.split(':')[1]);
+
+                    var curTop = (startHour - minHour) * heightHour + startMinutes / 60 * heightHour;
+
+                    var curHeight = ((endHour + endMinutes / 60) - (startHour + startMinutes / 60)) * heightHour - 3;
+
+                    var border = 'border-top-color:' + curHall.color;
+                    var curColor = 'color:' + curHall.color;
+
+                    var openTag = 'div';
+                    var closeTag = 'div';
+                    if (typeof(curEvent.detail) != 'undefined') {
+                        openTag = 'a href="' + curEvent.detail + '"';
+                        closeTag = 'a';
+                    }
+
+                    eventsHTML +=   '<' + openTag + ' class="program-item" style="top:' + curTop +'px; min-height:' + curHeight + 'px; max-height:' + curHeight + 'px; ' + border + '">';
+                    if (typeof(curEvent.notime) != 'undefined' && curEvent.notime) {
+                        eventsHTML +=   '<div class="program-item-big" style="' + curColor + '">' + curEvent.title + '</div>';
+                    } else {
+                        eventsHTML +=   '<div class="program-item-top">' +
+                                            '<div class="program-item-time"><svg><use xlink:href="' + $('.program-content').attr('data-timeicon') + '"></use></svg>' + curEvent.start + '&ndash;' + curEvent.end + '</div>';
+                        if (typeof(curEvent.pause) != 'undefined') {
+                            eventsHTML +=   '<div class="program-item-pause">' + curEvent.pause + '</div>';
+                        }
+                        eventsHTML +=       '<div class="program-item-title">' + curEvent.title + '</div>' +
+                                        '</div>';
+                    }
+                    if (typeof(curEvent.logo) != 'undefined' || typeof(curEvent.speaker) != 'undefined') {
+                        eventsHTML +=   '<div class="program-item-bottom">';
+                        if (typeof(curEvent.speaker) != 'undefined') {
+                            eventsHTML +=   '<div class="program-item-speaker">' +
+                                                '<div class="program-item-speaker-photo"><img src="' + curEvent.speaker.photo + '" alt=""></div>' +
+                                                '<div class="program-item-speaker-content">' +
+                                                    '<div class="program-item-speaker-firstname">' + curEvent.speaker.firstname + '</div>' +
+                                                    '<div class="program-item-speaker-lastname">' + curEvent.speaker.lastname + '</div>' +
+                                                '</div>' +
+                                            '</div>';
+                        }
+                        if (typeof(curEvent.logo) != 'undefined') {
+                            eventsHTML +=   '<div class="program-item-logo"><img src="' + curEvent.logo + '" alt=""></div>';
+                        }
+                        eventsHTML +=   '</div>';
+                    }
+                     /*               '<div class="program-item-top">' +
+                                        '<div class="program-item-time"><svg><use xlink:href="' + pathTemplate + 'images/sprite.svg#icon-time"></use></svg>' + curEvent.start + '&ndash;' + curEvent.end + '</div>' +
+                                        '<div class="title-medium">' + curEvent.title + '</div>' +
+                                    '</div>';
+                                    eventsHTML += 'startHour=' + startHour + '<br>' + 'startMinutes=' + startMinutes + '<br>' + 'endHour=' + endHour + '<br>' + 'endMinutes=' + endMinutes;
+/*                    if (typeof(curEvent.format) != 'undefined' || typeof(curEvent.track) != 'undefined') {
+                        newHTML +=  '<div class="program-item-bottom">';
+                            if (typeof(curEvent.format) != 'undefined') {
+                                newHTML +=  '<div class="program-item-format">' + curEvent.format + '</div>';
+                            }
+                            if (typeof(curEvent.track) != 'undefined') {
+                                newHTML +=  '<div class="program-item-track"><span style="' + textColor + '">' + curEvent.track.join(', ') + '</span></div>';
+                            }
+                        newHTML +=  '</div>';
+                    }
+                    var isFavourite = ''
+                    if (typeof $.cookie('program-item-favourite-' + curEvent.id) != 'undefined' && $.cookie('program-item-favourite-' + curEvent.id) == 'true') {
+                        isFavourite = ' active';
+                    }
+                    newHTML +=  '<div class="program-item-favourite ' + isFavourite + '"><svg><use xlink:href="' + pathTemplate + 'images/sprite.svg#icon-favourite"></use></svg></div>';*/
+                    eventsHTML +=   '</' + closeTag + '>';
+                }
+            }
+            eventsHTML +=       '</div>';
+        }
+
+        eventsHTML +=       '</div>';
+        $('.program-content-table').append(eventsHTML);
+
+    } else {
+        $('.program-content-halls').html('');
+        $('.program-content-table').html('');
     }
 }
