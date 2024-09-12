@@ -568,32 +568,7 @@ if(localStorage.getItem('popup1')) {
                     </ul>
                 </nav>
 
-                <div class="program-header">
-                    <h1>Деловая программа</h1>
-                    <div class="program-header-btns">
-                        <div class="program-header-btn"><a href="/reg/" class="btn btn-blue" target="_blank">Посетить<span> выставку</span></a></div>
-                        <div class="program-header-btn"><a href="/participation/zayavka-na-uchastie/" class="btn" target="_blank">Участвовать<span> в выставке</span></a></div>
-                    </div>
-                </div>
-
-                <div class="program-header-years">
-                    <ul>
-                        <li><a href="/about/delovaya-programma/2022/">2022</a></li>
-                        <li class="current"><a href="/about/delovaya-programma/2021/">2021</a></li>
-                        <li><a href="/about/delovaya-programma/2019/">2019</a></li>
-                        <li><a href="/about/delovaya-programma/2018/">2018</a></li>
-                        <li><a href="/about/delovaya-programma/2017/">2017</a></li>
-                        <li><a href="/about/delovaya-programma/2016/">2016</a></li>
-                        <li><a href="/about/delovaya-programma/2015/">2015</a></li>
-                        <li><a href="/about/delovaya-programma/2014/">2014</a></li>
-                        <li><a href="/about/delovaya-programma/2013/">2013</a></li>
-                        <li><a href="/about/delovaya-programma/2012/">2012</a></li>
-                        <li><a href="/about/delovaya-programma/2010/">2010</a></li>
-                        <li><a href="/about/delovaya-programma/2009/">2009</a></li>
-                        <li><a href="/about/delovaya-programma/2004/">2004</a></li>
-                        <li><a href="/about/delovaya-programma/2003/">2003</a></li>
-                    </ul>
-                </div>
+                <h1>Спикеры</h1>
 
             </div>
         </header><!-- /page-header -->
@@ -601,240 +576,174 @@ if(localStorage.getItem('popup1')) {
         <!-- d grid -->
         <div class="d-grid">
 
-            <!-- program -->
-            <div class="program">
+            <!-- speakers page -->
+            <div class="speakers-page wow fadeInUp">
 
-                <div class="program-welcome"><img src="upload/medialibrary/cf4/cf4739f72f39f184bdcda1f6a30f5e44.jpg" alt=""></div>
-
-                <!-- program section -->
-                <div class="program-section wow fadeInUp">
-                    <h2 class="program-section-title"><span>Наши</span> партнеры</h2>
-                    <div class="program-partners">
-                        <div class="program-partners-group">
-                            <h3 class="program-partners-group-title">Стратегический партнер выставки Ассоциация</h3>
-                            <div class="program-partners-main"><img src="images/banners/2011/ratpe/ratpe.gif" alt="РАТПЭ"></div>
+                <!-- speakers filter -->
+                <div class="speakers-filter">
+                    <form action="ajax/speakers.html" method="post">
+                        <div class="speakers-filter-search"><input type="text" name="search" value="" placeholder="Поиск"><svg><use xlink:href="img/sprite.svg#speakers-search"></use></svg></div>
+                        <div class="speakers-filter-letters">
+                            <label><input type="checkbox" name="letter[А]"><span>А</span></label>
+                            <label><input type="checkbox" name="letter[Б]"><span>Б</span></label>
+                            <label><input type="checkbox" name="letter[В]"><span>В</span></label>
+                            <label><input type="checkbox" name="letter[Г]"><span>Г</span></label>
+                            <label><input type="checkbox" name="letter[Д]" checked><span>Д</span></label>
+                            <label><input type="checkbox" name="letter[Е]"><span>Е</span></label>
+                            <label><input type="checkbox" name="letter[Ё]"><span>Ё</span></label>
+                            <label><input type="checkbox" name="letter[Ж]"><span>Ж</span></label>
+                            <label><input type="checkbox" name="letter[З]" disabled><span>З</span></label>
+                            <label><input type="checkbox" name="letter[И]"><span>И</span></label>
+                            <label><input type="checkbox" name="letter[К]"><span>К</span></label>
+                            <label><input type="checkbox" name="letter[Л]"><span>Л</span></label>
+                            <label><input type="checkbox" name="letter[М]"><span>М</span></label>
+                            <label><input type="checkbox" name="letter[Н]"><span>Н</span></label>
+                            <label><input type="checkbox" name="letter[О]" disabled><span>О</span></label>
+                            <label><input type="checkbox" name="letter[П]"><span>П</span></label>
+                            <label><input type="checkbox" name="letter[Р]"><span>Р</span></label>
+                            <label><input type="checkbox" name="letter[С]" disabled><span>С</span></label>
+                            <label><input type="checkbox" name="letter[Т]"><span>Т</span></label>
+                            <label><input type="checkbox" name="letter[У]"><span>У</span></label>
+                            <label><input type="checkbox" name="letter[Ф]"><span>Ф</span></label>
+                            <label><input type="checkbox" name="letter[Х]"><span>Х</span></label>
+                            <label><input type="checkbox" name="letter[Ц]" disabled><span>Ц</span></label>
+                            <label><input type="checkbox" name="letter[Ч]"><span>Ч</span></label>
+                            <label><input type="checkbox" name="letter[Ш]"><span>Ш</span></label>
+                            <label><input type="checkbox" name="letter[Щ]" disabled><span>Щ</span></label>
+                            <label><input type="checkbox" name="letter[Э]" disabled><span>Э</span></label>
+                            <label><input type="checkbox" name="letter[Ю]"><span>Ю</span></label>
+                            <label><input type="checkbox" name="letter[Я]"><span>Я</span></label>
                         </div>
-                        <div class="program-partners-group">
-                            <h3 class="program-partners-group-title">Партнеры</h3>
-                            <div class="program-partners-list">
-                                <div class="program-partners-item"><img src="upload/iblock/31f/6c29yrcw5cpzwc6spmqwu8ttan3046z9.jpg" alt="Sturmtools"></div>
-                                <div class="program-partners-item"><img src="upload/iblock/c52/f1qs3s3a6462r9068rcu8gmbmsh4tuxg.jpg" alt="Energomash"></div>
-                                <div class="program-partners-item"><img src="upload/iblock/64d/7o7kvlndoa8alylzagdk4yycm6z00owd.jpg" alt="Litopt"></div>
-                                <div class="program-partners-item"><img src="upload/iblock/8be/erdm4gwlkv7jg3itz6phst0q19ash1j8.png" alt="Condtrol"></div>
-                                <div class="program-partners-item"><img src="upload/iblock/6f7/6f77f48e825220deae9ba11c4974fd00.png" alt="Kolner"></div>
-                                <div class="program-partners-item"><img src="upload/iblock/a25/6cqkykz7wwjmzvqjbx037p153m0v9v28.jpg" alt="СТАВР"></div>
-                                <div class="program-partners-item"><img src="upload/iblock/d82/kvi7o7o3t7nusg5q2n7a7m8ohvq7zfrs.jpg" alt="Интерскол"></div>
-                                <div class="program-partners-item"><img src="upload/iblock/a13/a13e3f71b9f0d6c7872b9bded77b9eef.gif" alt="Metabo"></div>
-                                <div class="program-partners-item"><img src="upload/iblock/057/0576d5ee0eeb332ff8e7308a51b9571c.png" alt="Фиолент"></div>
-                                <div class="program-partners-item"><img src="upload/iblock/9fc/3zo69yyr5ercfg8tmyeyakcfhgn3qru4.jpg" alt="Лит"></div>
-                                <div class="program-partners-item"><img src="upload/iblock/610/61007a83c540e60cb1af246b5bfc81cf.png" alt="Patriot"></div>
-                                <div class="program-partners-item"><img src="upload/iblock/f52/f52a7a9f52e926f748bf64b996bdb117.png" alt="MachineStore"></div>
-                                <div class="program-partners-item"><img src="upload/iblock/b3f/b3fafd9f1b456a5810aac4ef7b7803b8.png" alt="УралОптИнструмент"></div>
+                    </form>
+                </div>
+                <!-- speakers filter END -->
+
+                <!-- speakers container -->
+                <div class="speakers-container">
+
+                    <!-- speakers -->
+                    <div class="speakers">
+                        <div class="speakers-item">
+                            <a href="#">
+                                <div class="speakers-item-photo"><img src="files/speakers-01.jpg" alt=""></div>
+                                <div class="speakers-item-name">Андрей Громов</div>
+                                <div class="speakers-item-text">руководитель Русской Токарной Школы</div>
+                            </a>
+                        </div>
+                        <div class="speakers-item">
+                            <a href="#">
+                                <div class="speakers-item-photo"><img src="files/speakers-02.jpg" alt=""></div>
+                                <div class="speakers-item-name">Катя Меньшикова</div>
+                                <div class="speakers-item-text">столяр, дизайнер предметов, со-основатель столярной мастерской Roar (Москва)</div>
+                            </a>
+                        </div>
+                        <div class="speakers-item">
+                            <a href="#">
+                                <div class="speakers-item-photo"><img src="files/speakers-03.jpg" alt=""></div>
+                                <div class="speakers-item-name">Михаил Кучук</div>
+                                <div class="speakers-item-text">автор канала Heartwood</div>
+                            </a>
+                        </div>
+                        <div class="speakers-item">
+                            <a href="#">
+                                <div class="speakers-item-photo"><img src="files/speakers-04.jpg" alt=""></div>
+                                <div class="speakers-item-name">Ольга Сивицкая</div>
+                                <div class="speakers-item-text">руководитель студии реставрации мебели RESTART</div>
+                            </a>
+                        </div>
+                        <div class="speakers-item">
+                            <a href="#">
+                                <div class="speakers-item-photo"><img src="files/speakers-05.jpg" alt=""></div>
+                                <div class="speakers-item-name">Рашид Мамусев</div>
+                                <div class="speakers-item-text">начальник производства студии RESTART колледж художественных ремёсел, столяр-краснодеревщик</div>
+                            </a>
+                        </div>
+                        <div class="speakers-item">
+                            <a href="#">
+                                <div class="speakers-item-photo"><img src="files/speakers-06.jpg" alt=""></div>
+                                <div class="speakers-item-name">Катя Меньшикова</div>
+                                <div class="speakers-item-text">основатель компании</div>
+                            </a>
+                        </div>
+                        <div class="speakers-item">
+                            <a href="#">
+                                <div class="speakers-item-photo"><img src="files/speakers-04.jpg" alt=""></div>
+                                <div class="speakers-item-name">Ольга Сивицкая</div>
+                                <div class="speakers-item-text">руководитель студии реставрации мебели RESTART</div>
+                            </a>
+                        </div>
+                        <div class="speakers-item">
+                            <a href="#">
+                                <div class="speakers-item-photo"><img src="files/speakers-02.jpg" alt=""></div>
+                                <div class="speakers-item-name">Катя Меньшикова</div>
+                                <div class="speakers-item-text">столяр, дизайнер предметов, со-основатель столярной мастерской Roar (Москва)</div>
+                            </a>
+                        </div>
+                        <div class="speakers-item">
+                            <a href="#">
+                                <div class="speakers-item-photo"><img src="files/speakers-04.jpg" alt=""></div>
+                                <div class="speakers-item-name">Ольга Сивицкая</div>
+                                <div class="speakers-item-text">руководитель студии реставрации мебели RESTART</div>
+                            </a>
+                        </div>
+                        <div class="speakers-item">
+                            <a href="#">
+                                <div class="speakers-item-photo"><img src="files/speakers-02.jpg" alt=""></div>
+                                <div class="speakers-item-name">Катя Меньшикова</div>
+                                <div class="speakers-item-text">столяр, дизайнер предметов, со-основатель столярной мастерской Roar (Москва)</div>
+                            </a>
+                        </div>
+                        <div class="speakers-item">
+                            <a href="#">
+                                <div class="speakers-item-photo"><img src="files/speakers-03.jpg" alt=""></div>
+                                <div class="speakers-item-name">Михаил Кучук</div>
+                                <div class="speakers-item-text">автор канала Heartwood</div>
+                            </a>
+                        </div>
+                        <div class="speakers-item">
+                            <a href="#">
+                                <div class="speakers-item-photo"><img src="files/speakers-01.jpg" alt=""></div>
+                                <div class="speakers-item-name">Андрей Громов</div>
+                                <div class="speakers-item-text">руководитель Русской Токарной Школы</div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- speakers END -->
+
+                    <div class="pager">
+                        <div class="pager-container">
+                            <a href="#" class="pager-prev" data-value="prev"><svg><use xlink:href="img/sprite.svg#pager-prev"></use></svg></a>
+                            <a href="#" data-value="1">1</a>
+                            <span>...</span>
+                            <a href="#" class="active" data-value="5">5</a>
+                            <a href="#" data-value="6">6</a>
+                            <a href="#" data-value="7">7</a>
+                            <span>...</span>
+                            <a href="#" data-value="17">17</a>
+                            <a href="#" class="pager-next" data-value="next"><svg><use xlink:href="img/sprite.svg#pager-next"></use></svg></a>
+                        </div>
+
+                        <div class="pager-size">
+                            <div class="pager-size-title">На странице</div>
+                            <div class="pager-size-select">
+                                <div class="pager-size-select-current"><span>12</span><svg><use xlink:href="img/sprite.svg#pager-size"></use></svg></div>
+                                <div class="pager-size-select-list">
+                                    <div class="pager-size-select-item"><label><input type="radio" name="size" value="8"><span>8</span></label></div>
+                                    <div class="pager-size-select-item"><label><input type="radio" name="size" value="12" checked="checked"><span>12</span></label></div>
+                                    <div class="pager-size-select-item"><label><input type="radio" name="size" value="16"><span>16</span></label></div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
-                <!-- program section END -->
-
-                <!-- program section -->
-                <div class="program-section wow fadeInUp">
-                    <h2 class="program-section-title"><span>Расписание</span> мероприятий</h2>
-                    <div class="program-container">
-                        <div class="program-days">
-                        </div>
-                        
-                        <div class="program-content" data-placeicon="img/sprite.svg#event-detail-map">
-                            <div class="program-content-halls">
-                            </div>
-                            <div class="program-content-table">
-                            </div>
-                        </div>
-                    </div>
-                    <script>
-                        var programData = {
-                            "halls" : [
-                                {
-                                    "id"    : "1",
-                                    "title" : "Mitex Арена",
-                                    "place" : "Павильон 2, зал 3",
-                                    "color" : "#FE5501",
-                                    "bg"    : "rgba(255, 85, 0, 0.1)",
-                                },
-
-                                {
-                                    "id"    : "2",
-                                    "title" : "Mitex.DIY",
-                                    "place" : "Павильон 8, зал 1",
-                                    "color" : "#5E5EDF",
-                                    "bg"    : "rgba(94, 94, 223, 0.1)",
-                                },
-
-                                {
-                                    "id"    : "3",
-                                    "title" : "Mitex China Forum",
-                                    "place" : "Павильон Форум",
-                                    "color" : "#00BADB",
-                                    "bg"    : "rgba(0, 186, 219, 0.1)",
-                                },
-
-                                {
-                                    "id"    : "4",
-                                    "title" : "Mitex ПАРК",
-                                    "place" : "Павильон Форум",
-                                    "color" : "#31B959",
-                                    "bg"    : "rgba(48, 185, 89, 0.1)",
-                                },
-                            ],
-
-                            "data"  : [
-                                {
-                                    "day"       : "1 день",
-                                    "date"      : "01.11.2023",
-                                    "events"    : [
-                                        {
-                                            "id"        : "01",
-                                            "start"     : "11:00",
-                                            "end"       : "11:30",
-                                            "hall"      : "1",
-                                            "title"     : "Официальное открытие",
-                                            "notime"    : true,
-                                        },
-
-                                        {
-                                            "id"        : "02",
-                                            "start"     : "11:30",
-                                            "end"       : "13:00",
-                                            "hall"      : "1",
-                                            "title"     : "Пленарная сессия: Потенциал и&nbsp;перспективы развития инструментальной отрасли 2024",
-                                            "detail"    : "mitexpo-03-program-card.html",
-                                        },
-
-                                        {
-                                            "id"        : "03",
-                                            "start"     : "13:30",
-                                            "end"       : "15:00",
-                                            "hall"      : "1",
-                                            "title"     : "Практическая сессия &laquo;Электроинструмент на&nbsp;маркетплейсах. Сложности и&nbsp;возможности для развития и&nbsp;роста на&nbsp;рынке&raquo;",
-                                            "detail"    : "mitexpo-03-program-card.html",
-                                        },
-
-                                        {
-                                            "id"        : "04",
-                                            "start"     : "15:30",
-                                            "end"       : "17:30",
-                                            "hall"      : "1",
-                                            "title"     : "Тренды инструментального рынка",
-                                            "logo"      : "files/program-logo-1.png",
-                                            "detail"    : "mitexpo-03-program-card.html",
-                                        },
-
-                                        {
-                                            "id"        : "05",
-                                            "start"     : "11:00",
-                                            "end"       : "14:30",
-                                            "pause"     : "Перерыв: 12:30 — 13:00",
-                                            "hall"      : "2",
-                                            "title"     : "Мебельные фасады. Преображение Вашей мебели за&nbsp;3&nbsp;часа!",
-                                            "speaker"   : {
-                                                "photo"     : "files/program-speaker-1.jpg",
-                                                "firstname" : "Михаил",
-                                                "lastname"  : "Кучук",
-                                            },
-                                            "detail"    : "mitexpo-03-program-card.html",
-                                        },
-
-                                        {
-                                            "id"        : "06",
-                                            "start"     : "15:00",
-                                            "end"       : "17:30",
-                                            "hall"      : "2",
-                                            "title"     : "Тумба за&nbsp;два часа: DIY как экспресс-метод создания мебели",
-                                            "speaker"   : {
-                                                "photo"     : "files/program-speaker-2.jpg",
-                                                "firstname" : "Катя",
-                                                "lastname"  : "Меньшикова",
-                                            },
-                                            "detail"    : "mitexpo-03-program-card.html",
-                                        },
-
-                                        {
-                                            "id"        : "07",
-                                            "start"     : "11:00",
-                                            "end"       : "14:30",
-                                            "hall"      : "3",
-                                            "title"     : "Конференция &laquo;Российский рынок электроинструмента и&nbsp;средств малой механизации. Состояние и&nbsp;перспективы&raquo;",
-                                            "detail"    : "mitexpo-03-program-card.html",
-                                        },
-
-                                        {
-                                            "id"        : "08",
-                                            "start"     : "15:00",
-                                            "end"       : "16:30",
-                                            "hall"      : "3",
-                                            "title"     : "Экспертная сессия &laquo;Рынок садового инструмента. Объёмы, темпы роста и&nbsp;прогнозы экспертов&raquo;",
-                                            "detail"    : "mitexpo-03-program-card.html",
-                                        },
-
-                                        {
-                                            "id"        : "09",
-                                            "start"     : "10:30",
-                                            "end"       : "12:30",
-                                            "hall"      : "4",
-                                            "title"     : "Тренды потребительского поведения",
-                                            "logo"      : "files/program-logo-2.png",
-                                            "detail"    : "mitexpo-03-program-card.html",
-                                        },
-
-                                        {
-                                            "id"        : "10",
-                                            "start"     : "13:00",
-                                            "end"       : "14:00",
-                                            "hall"      : "4",
-                                            "title"     : "Тренинг &laquo;Экспертные продажи и&nbsp;продуктовый менеджмент в&nbsp;B2B&raquo;",
-                                            "detail"    : "mitexpo-03-program-card.html",
-                                        },
-                                    ],
-                                },
-
-                                {
-                                    "day"       : "2 день",
-                                    "date"      : "08.11.2023",
-                                    "events"    : [
-                                    ],
-                                },
-
-                                {
-                                    "day"       : "3 день",
-                                    "date"      : "09.11.2023",
-                                    "events"    : [
-                                    ],
-                                },
-
-                                {
-                                    "day"       : "4 день",
-                                    "date"      : "10.11.2023",
-                                    "events"    : [
-                                    ],
-                                },
-                            ],
-                        };
-                    </script>
-                </div>
-                <!-- program section END -->
-
-                <!-- program section -->
-                <div class="program-section wow fadeInUp">
-                    <h2 class="program-section-title"><span>Генеральный</span> спонсор выставки</h2>
-                    <div class="program-general-sponsor"><a href="https://caiman.ru/?erid=2RanynTwrsS" target="_blank"><img src="upload/medialibrary/248/g4vesocc6t1ol47791wwe521zcsg6520.jpg" alt="Caiman" title="Caiman"></a></div>
-                </div>
-                <!-- program section END -->
+                <!-- speakers container END -->
 
             </div>
-            <!-- program END -->
+            <!-- speakers page END -->
 
         </div>
         <!-- d grid END -->
-
 
 
 
