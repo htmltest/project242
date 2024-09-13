@@ -262,17 +262,31 @@ function updateProgram() {
             }
         }
 
+        $('.program-content-halls').each(function() {
+            var curList = $(this);
+            if (curList.hasClass('slick-slider')) {
+                curList.slick('unslick');
+            }
+        });
+
         var hallsHTML = '';
         for (var i = 0; i < newHalls.length; i++) {
             var curHall = newHalls[i];
             hallsHTML +=    '<div class="program-hall">' +
-                                '<div class="program-hall-inner">' +
+                                '<div class="program-hall-inner" style="background:' + curHall.bg + '">' +
                                     '<div class="program-hall-title" style="color:' + curHall.color + '">' + curHall.title + '</div>' +
                                     '<div class="program-hall-place"><span style="color:' + curHall.color + '; background:' + curHall.bg + '"><svg style="fill:' + curHall.color + '"><use xlink:href="' + $('.program-content').attr('data-placeicon') + '"></use></svg>' + curHall.title + '</span></div>' +
                                 '</div>' +
                             '</div>';
         }
         $('.program-content-halls').html(hallsHTML);
+
+        $('.program-events').each(function() {
+            var curList = $(this);
+            if (curList.hasClass('slick-slider')) {
+                curList.slick('unslick');
+            }
+        });
 
         var eventsHTML =    '<div class="program-events">';
 
@@ -332,26 +346,6 @@ function updateProgram() {
                         }
                         eventsHTML +=   '</div>';
                     }
-                     /*               '<div class="program-item-top">' +
-                                        '<div class="program-item-time"><svg><use xlink:href="' + pathTemplate + 'images/sprite.svg#icon-time"></use></svg>' + curEvent.start + '&ndash;' + curEvent.end + '</div>' +
-                                        '<div class="title-medium">' + curEvent.title + '</div>' +
-                                    '</div>';
-                                    eventsHTML += 'startHour=' + startHour + '<br>' + 'startMinutes=' + startMinutes + '<br>' + 'endHour=' + endHour + '<br>' + 'endMinutes=' + endMinutes;
-/*                    if (typeof(curEvent.format) != 'undefined' || typeof(curEvent.track) != 'undefined') {
-                        newHTML +=  '<div class="program-item-bottom">';
-                            if (typeof(curEvent.format) != 'undefined') {
-                                newHTML +=  '<div class="program-item-format">' + curEvent.format + '</div>';
-                            }
-                            if (typeof(curEvent.track) != 'undefined') {
-                                newHTML +=  '<div class="program-item-track"><span style="' + textColor + '">' + curEvent.track.join(', ') + '</span></div>';
-                            }
-                        newHTML +=  '</div>';
-                    }
-                    var isFavourite = ''
-                    if (typeof $.cookie('program-item-favourite-' + curEvent.id) != 'undefined' && $.cookie('program-item-favourite-' + curEvent.id) == 'true') {
-                        isFavourite = ' active';
-                    }
-                    newHTML +=  '<div class="program-item-favourite ' + isFavourite + '"><svg><use xlink:href="' + pathTemplate + 'images/sprite.svg#icon-favourite"></use></svg></div>';*/
                     eventsHTML +=   '</' + closeTag + '>';
                 }
             }
@@ -361,8 +355,64 @@ function updateProgram() {
         eventsHTML +=       '</div>';
         $('.program-content-table').append(eventsHTML);
 
+        if ($(window).width() < 1024) {
+            $('.program-content-halls').slick({
+                infinite: false,
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                prevArrow: '<div class="slick-prev"><svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.502 13.7403L6.26172 9.50002L10.502 5.2597L11.2923 6.05002L7.84234 9.50002L11.2923 12.95L10.502 13.7403Z" /></svg></div>',
+                nextArrow: '<div class="slick-next"><svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.49797 5.25967L11.7383 9.49998L7.49797 13.7403L6.70766 12.95L10.1577 9.49998L6.70766 6.04998L7.49797 5.25967Z" /></svg></div>',
+                dots: false,
+                adaptiveHeight: false,
+                asNavFor: '.program-events',
+                responsive: [
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                        }
+                    }
+                ]
+            });
+        }
+
+        if ($(window).width() < 1024) {
+            $('.program-events-hall').css({'height': $('.program-events').height()});
+            $('.program-events').slick({
+                infinite: false,
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                arrows: false,
+                dots: false,
+                adaptiveHeight: false,
+                asNavFor: '.program-content-halls',
+                responsive: [
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                        }
+                    }
+                ]
+            });
+        }
     } else {
+        $('.program-content-halls').each(function() {
+            var curList = $(this);
+            if (curList.hasClass('slick-slider')) {
+                curList.slick('unslick');
+            }
+        });
         $('.program-content-halls').html('');
+
+        $('.program-events').each(function() {
+            var curList = $(this);
+            if (curList.hasClass('slick-slider')) {
+                curList.slick('unslick');
+            }
+        });
         $('.program-content-table').html('');
     }
 }
