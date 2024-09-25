@@ -227,7 +227,7 @@
 .page-header-program-card h1 {font-size:40px; line-height:48px; font-weight:600}
 .page-header-program-card h1 .pager-header-with-back-link a {margin-top:4px}
 .page-header-program-card-container {margin:30px 0 0 0; display:flex; justify-content:space-between; align-items:flex-start}
-.page-header-program-card-when {display:flex}
+.page-header-program-card-when {display:flex; white-space:nowrap}
 .page-header-program-card-when-inner {display:flex; height:42px; align-items:center; background:#FF5500; border-radius:4px; padding:0 20px; color:#FFFFFF; font:20px/30px Rubik, sans-serif}
 .page-header-program-card-when-day {font-weight:600}
 .page-header-program-card-when-date {display:flex; align-items:center; height:30px; border-left:1px solid rgba(255, 255, 255, 0.2); margin:0 0 0 15px; padding:0 0 0 15px}
@@ -241,6 +241,8 @@
 .page-header-program-card-where-map a {display:flex; align-items:center; color:#FF5500; text-decoration:none}
 .page-header-program-card-where-map a:hover {text-decoration:underline}
 .page-header-program-card-where-map a svg {min-width:24px; max-width:24px; height:24px; margin:0 10px 0 0; fill:#FF5500}
+.page-header-program-card-type {margin:0 0 0 10px; width:100%; display:flex}
+.page-header-program-card-type span {height:42px; padding:0 10px; display:flex; align-items:center; background:#F0F0F0; border-radius:4px; color:#494949; font:20px/30px Rubik, sans-serif}
 .page-header-program-card-social {min-width:42px; max-width:42px; margin:0 0 0 20px; position:relative}
 .page-header-program-card-social-link {display:flex; width:42px; height:42px; align-items:center; justify-content:center; background:#494949; border-radius:4px; transition:background 0.2s}
 .page-header-program-card-social-link svg {width:20px; height:20px; fill:#FFFFFF}
@@ -254,7 +256,9 @@
 
 @media (max-width:1023px) {
     .page-header-program-card h1 {font-size:36px; line-height:43px}
-    .page-header-program-card-container {margin:45px 0 0 0}
+    .page-header-program-card-container {margin:30px 0 0 0}
+    .page-header-program-card-when {flex-direction:column; align-items:flex-start}
+    .page-header-program-card-type {margin:10px 0 0 0}
 }
 
 @media (max-width:767px) {
@@ -271,6 +275,8 @@
     .page-header-program-card-where-location svg {min-width:16px; max-width:16px; height:16px; margin:0 5px 0 0}
     .page-header-program-card-where-map {margin:5px 0 0 0; padding:0; border-left:none}
     .page-header-program-card-where-map a svg {min-width:16px; max-width:16px; height:16px; margin:0 5px 0 0}
+    .page-header-program-card-type {margin:8px 0 0 0}
+    .page-header-program-card-type span {height:28px; font-size:13px; line-height:20px}
     .page-header-program-card-social {min-width:24px; max-width:24px; margin:0; position:absolute; right:0; top:0}
     .page-header-program-card-social-link {width:24px; height:24px}
     .page-header-program-card-social-link svg {width:16px; height:16px}
@@ -378,17 +384,19 @@
 
 .event-detail-moderator {min-width:260px; max-width:260px; margin:0 60px 0 0}
 .event-detail-moderator .speakers-item {min-width:100%; max-width:100%}
-.event-detail-speakers {margin:0 0 0 60px; width:100%; padding:0 0 0 60px; border-left:1px solid #F4F4F4; box-sizing:border-box}
-.event-detail-speakers .speakers-item {min-width:33.33%; max-width:33.33%}
+.event-detail-speakers {width:100%; box-sizing:border-box}
+.event-detail-moderator+.event-detail-speakers {margin:0 0 0 60px; padding:0 0 0 60px; border-left:1px solid #F4F4F4}
+.event-detail-moderator+.event-detail-speakers .speakers-item {min-width:33.33%; max-width:33.33%}
 
 @media (max-width:1023px) {
     .event-detail-moderator {min-width:236px; max-width:236px; margin:0}
-    .event-detail-speakers {margin:80px 0 0 0; width:auto; padding:0; border-left:none}
+    .event-detail-speakers {width:auto}
+    .event-detail-moderator+.event-detail-speakers {margin:80px 0 0 0; padding:0; border-left:none}
 }
 
 @media (max-width:767px) {
     .event-detail-moderator {min-width:0; max-width:none; margin:0}
-    .event-detail-moderator .speakers-item {min-width:50%; max-width:50%}
+    .event-detail-moderator+.event-detail-speakers .speakers-item {min-width:50%; max-width:50%}
     .event-detail-speakers {margin:60px 0 0 0}
     .event-detail-speakers .speakers-item {min-width:50%; max-width:50%}
 }
@@ -676,10 +684,8 @@ a.program-item:hover {transform:translateY(-5px)}
 .program-item-title {margin:12px 0 0 0; font-weight:600; font-size:14px; line-height:21px; color:#494949}
 .program-item-logo {margin:12px 0 0 0}
 .program-item-logo img {display:block; min-height:25px; max-height:25px}
-.program-item-speaker {margin:12px 0 0 0; display:flex; align-items:center}
-.program-item-speaker-photo {min-width:50px; max-width:50px; margin:0 12px 0 0}
-.program-item-speaker-photo img {display:block; width:100%; border-radius:50%}
-.program-item-speaker-content {font-weight:normal; font-size:14px; line-height:21px; color:#494949}
+.program-item-type {margin:12px 0 0 0; display:flex}
+.program-item-type span {padding:4px 6px; background:#F0F0F0; border-radius:4px; font-weight:normal; font-size:10px; line-height:15px; letter-spacing:0.05em; text-transform:uppercase; color:rgba(0, 0, 0, 0.6)}
 
 @media (max-width:1440px) {
     .program-events {left:110px; right:110px}
@@ -709,5 +715,4 @@ a.program-item:hover {transform:translateY(-5px)}
     .program-item-time svg {min-width:14px; max-width:14px; height:14px}
     .program-item-pause {font-size:12px; line-height:18px}
     .program-item-title {font-size:12px; line-height:18px}
-    .program-item-speaker-content {font-size:12px; line-height:18px}
 }

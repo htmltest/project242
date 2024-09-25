@@ -330,16 +330,10 @@ function updateProgram() {
                         eventsHTML +=       '<div class="program-item-title">' + curEvent.title + '</div>' +
                                         '</div>';
                     }
-                    if (typeof(curEvent.logo) != 'undefined' || typeof(curEvent.speaker) != 'undefined') {
+                    if (typeof(curEvent.logo) != 'undefined' || typeof(curEvent.type) != 'undefined') {
                         eventsHTML +=   '<div class="program-item-bottom">';
-                        if (typeof(curEvent.speaker) != 'undefined') {
-                            eventsHTML +=   '<div class="program-item-speaker">' +
-                                                '<div class="program-item-speaker-photo"><img src="' + curEvent.speaker.photo + '" alt=""></div>' +
-                                                '<div class="program-item-speaker-content">' +
-                                                    '<div class="program-item-speaker-firstname">' + curEvent.speaker.firstname + '</div>' +
-                                                    '<div class="program-item-speaker-lastname">' + curEvent.speaker.lastname + '</div>' +
-                                                '</div>' +
-                                            '</div>';
+                        if (typeof(curEvent.type) != 'undefined') {
+                            eventsHTML +=   '<div class="program-item-type"><span>' + curEvent.type + '</span></div>';
                         }
                         if (typeof(curEvent.logo) != 'undefined') {
                             eventsHTML +=   '<div class="program-item-logo"><img src="' + curEvent.logo + '" alt=""></div>';
