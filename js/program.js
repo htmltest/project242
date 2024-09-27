@@ -166,8 +166,47 @@ $(document).ready(function() {
 
             $('.program-days').html(htmlDays);
             $('.program-days-item').eq(0).addClass('active');
+
+            var typeList = [];
+            for (var i = 0; i < programData.data.length; i++) {
+                var curDay = programData.data[i];
+                for (var j = 0; j < curDay.events.length; j++) {
+                    var curEvent = curDay.events[j];
+                    if (typeof(curEvent.type) != 'undefined') {
+                        if (typeList.indexOf(curEvent.type) == -1) {
+                            typeList.push(curEvent.type);
+                        }
+                    }
+                }
+            }
+            var typeHTML = '';
+            for (var i = 0; i < typeList.length; i++) {
+                typeHTML += '<div class="program-formats-popup-item"><label><input type="checkbox" name="formats" value="' + typeList[i] + '"><span>' + typeList[i] + '</span></label></div>';
+            }
+            $('.program-formats-popup-list').html(typeHTML);
+
             updateProgram();
         }
+    });
+
+    $('body').on('change', '.program-formats-popup-list input', function() {
+        var countTypes = $('.program-formats-popup-list input:checked').length;
+        $('.program-formats-current-count').html(countTypes);
+        if (countTypes == 0) {
+            $('.program-formats-current').removeClass('active active-any');
+        } else {
+            $('.program-formats-current').addClass('active');
+            $('.program-formats-current-value').html($('.program-formats-popup-list input:checked').eq(0).parent().find('span').html());
+            if (countTypes > 1) {
+                $('.program-formats-current').addClass('active-any');
+            }
+        }
+        updateProgram();
+    });
+
+    $('body').on('click', '.program-formats-clear a', function(e) {
+        $('.program-formats-popup-list input').prop('checked', false).trigger('change');
+        e.preventDefault();
     });
 
     $('body').on('click', '.program-days-item', function(e) {
@@ -178,6 +217,16 @@ $(document).ready(function() {
             updateProgram();
         }
         e.preventDefault();
+    });
+
+    $('.program-formats-current').click(function(e) {
+        $('.program-formats').toggleClass('open');
+    });
+
+    $(document).click(function(e) {
+        if ($(e.target).parents().filter('.program-formats').length == 0) {
+            $('.program-formats').removeClass('open');
+        }
     });
 
 });
@@ -274,9 +323,11 @@ function updateProgram() {
             var curHall = newHalls[i];
             hallsHTML +=    '<div class="program-hall">' +
                                 '<div class="program-hall-inner" style="background:' + curHall.bg + '">' +
-                                    '<div class="program-hall-title" style="color:' + curHall.color + '">' + curHall.title + '</div>' +
-                                    '<div class="program-hall-place"><span style="color:' + curHall.color + '; background:' + curHall.bg + '"><svg style="fill:' + curHall.color + '"><use xlink:href="' + $('.program-content').attr('data-placeicon') + '"></use></svg>' + curHall.title + '</span></div>' +
-                                '</div>' +
+                                    '<div class="program-hall-title" style="color:' + curHall.color + '">' + curHall.title + '</div>';
+            if (typeof(curHall.place) != 'undefined') {
+                hallsHTML +=        '<div class="program-hall-place"><span style="color:' + curHall.color + '; background:' + curHall.bg + '"><svg style="fill:' + curHall.color + '"><use xlink:href="' + $('.program-content').attr('data-placeicon') + '"></use></svg>' + curHall.place + '</span></div>';
+            }
+            hallsHTML +=        '</div>' +
                             '</div>';
         }
         $('.program-content-halls').html(hallsHTML);
@@ -292,12 +343,23 @@ function updateProgram() {
 
         var heightHour = 112;
 
+        var curTypes = [];
+        $('.program-formats-popup-list input:checked').each(function() {
+            curTypes.push($(this).attr('value'));
+        });
+
         for (var i = 0; i < newHalls.length; i++) {
             var curHall = newHalls[i];
             eventsHTML +=          '<div class="program-events-hall">';
             for (var j = 0; j < curEvents.length; j++) {
                 var curEvent = curEvents[j];
-                if (curEvent.hall == curHall.id) {
+                var isFormat = true;
+                if (curTypes.length != 0) {
+                    if (typeof(curEvent.type) !== 'undefined' && curTypes.indexOf(curEvent.type) == -1) {
+                        isFormat = false;
+                    }
+                }
+                if (curEvent.hall == curHall.id && isFormat) {
                     var startHour = Number(curEvent.start.split(':')[0]);
                     var startMinutes = Number(curEvent.start.split(':')[1]);
 

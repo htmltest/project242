@@ -640,7 +640,21 @@ if(localStorage.getItem('popup1')) {
                 <div class="program-section wow fadeInUp">
                     <h2 class="program-section-title"><span>Расписание</span> мероприятий</h2>
                     <div class="program-container">
-                        <div class="program-days">
+                        <div class="program-ctrl">
+                            <div class="program-days">
+                            </div>
+                            <div class="program-formats">
+                                <div class="program-formats-current">
+                                    <div class="program-formats-current-title">Формат</div>
+                                    <div class="program-formats-current-value"></div>
+                                    <div class="program-formats-current-count">0</div>
+                                    <svg><use xlink:href="img/sprite.svg#program-formats-arrow"></use></svg>
+                                </div>
+                                <div class="program-formats-popup">
+                                    <div class="program-formats-popup-list"></div>
+                                    <div class="program-formats-clear"><a href="#">Очистить все</a></div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="program-content" data-placeicon="img/sprite.svg#event-detail-map" data-timeicon="img/sprite.svg#event-detail-time">
@@ -656,7 +670,6 @@ if(localStorage.getItem('popup1')) {
                                 {
                                     "id"    : "1",
                                     "title" : "Mitex Арена",
-                                    "place" : "Павильон 2, зал 3",
                                     "color" : "#FE5501",
                                     "bg"    : "rgba(255, 85, 0, 0.1)",
                                 },
@@ -769,7 +782,7 @@ if(localStorage.getItem('popup1')) {
                                             "hall"      : "3",
                                             "title"     : "Экспертная сессия &laquo;Рынок садового инструмента. Объёмы, темпы роста и&nbsp;прогнозы экспертов&raquo;",
                                             "detail"    : "mitexpo-03-program-card.html",
-                                            "type"      : "Пленарная сессия",
+                                            "type"      : "Стратегическая сессия",
                                         },
 
                                         {
@@ -780,7 +793,7 @@ if(localStorage.getItem('popup1')) {
                                             "title"     : "Тренды потребительского поведения",
                                             "logo"      : "files/program-logo-2.png",
                                             "detail"    : "mitexpo-03-program-card.html",
-                                            "type"      : "Пленарная сессия",
+                                            "type"      : "Пленарное заседание",
                                         },
 
                                         {
@@ -814,7 +827,7 @@ if(localStorage.getItem('popup1')) {
                                             "end"       : "14:00",
                                             "hall"      : "1",
                                             "title"     : "Как привлечь реальных клиентов через YouTube и&nbsp;стать &#8470;&nbsp;1&nbsp;в отрасли",
-                                            "type"      : "Пленарная сессия",
+                                            "type"      : "Стратегическая дискуссия",
                                             "detail"    : "mitexpo-03-program-card.html",
                                         },
 
@@ -824,7 +837,7 @@ if(localStorage.getItem('popup1')) {
                                             "end"       : "14:00",
                                             "hall"      : "2",
                                             "title"     : "Круглый стол &laquo;Управляемые продажи&raquo;",
-                                            "type"      : "Пленарная сессия",
+                                            "type"      : "Круглый стол",
                                             "detail"    : "mitexpo-03-program-card.html",
                                         },
 
@@ -836,7 +849,7 @@ if(localStorage.getItem('popup1')) {
                                             "title"     : "Форум &laquo;Российский рынок электроинструмента и&nbsp;средств малой механизации. Состояние и&nbsp;перспективы&raquo;",
                                             "logo"      : "images/banners/2011/ratpe/ratpe.gif",
                                             "detail"    : "mitexpo-03-program-card.html",
-                                            "type"      : "Пленарная сессия",
+                                            "type"      : "Дискуссионная сессия",
                                         },
                                     ],
                                 },
@@ -852,7 +865,7 @@ if(localStorage.getItem('popup1')) {
                                             "hall"      : "1",
                                             "title"     : "Запускаем продажи на&nbsp;маркетплейсах: новые возможности и&nbsp;особенности работы",
                                             "detail"    : "mitexpo-03-program-card.html",
-                                            "type"      : "Пленарная сессия",
+                                            "type"      : "Практическая сессия",
                                         },
 
                                         {
@@ -862,7 +875,7 @@ if(localStorage.getItem('popup1')) {
                                             "hall"      : "3",
                                             "title"     : "VII российская конференция дилеров АО&nbsp;&laquo;ЗАВОД &laquo;ФИОЛЕНТ&raquo;",
                                             "detail"    : "mitexpo-03-program-card.html",
-                                            "type"      : "Пленарная сессия",
+                                            "type"      : "Образовательный семинар",
                                         },
 
                                         {
