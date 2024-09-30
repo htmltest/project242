@@ -325,7 +325,7 @@ function updateProgram() {
                                 '<div class="program-hall-inner" style="background:' + curHall.bg + '">' +
                                     '<div class="program-hall-title" style="color:' + curHall.color + '">' + curHall.title + '</div>';
             if (typeof(curHall.place) != 'undefined') {
-                hallsHTML +=        '<div class="program-hall-place"><span style="color:' + curHall.color + '; background:' + curHall.bg + '"><svg style="fill:' + curHall.color + '"><use xlink:href="' + $('.program-content').attr('data-placeicon') + '"></use></svg>' + curHall.place + '</span></div>';
+                hallsHTML +=        '<a href="' + curHall.link + '" class="program-hall-place"><span style="color:' + curHall.color + '; background:' + curHall.bg + '"><svg style="fill:' + curHall.color + '"><use xlink:href="' + $('.program-content').attr('data-placeicon') + '"></use></svg>' + curHall.place + '</span></a>';
             }
             hallsHTML +=        '</div>' +
                             '</div>';
