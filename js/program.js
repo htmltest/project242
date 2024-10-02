@@ -325,7 +325,11 @@ function updateProgram() {
                                 '<div class="program-hall-inner" style="background:' + curHall.bg + '">' +
                                     '<div class="program-hall-title" style="color:' + curHall.color + '">' + curHall.title + '</div>';
             if (typeof(curHall.place) != 'undefined') {
-                hallsHTML +=        '<a href="' + curHall.link + '" class="program-hall-place"><span style="color:' + curHall.color + '; background:' + curHall.bg + '"><svg style="fill:' + curHall.color + '"><use xlink:href="' + $('.program-content').attr('data-placeicon') + '"></use></svg>' + curHall.place + '</span></a>';
+                if (typeof(curHall.link) != 'undefined') {
+                    hallsHTML +=    '<a href="' + curHall.link + '" class="program-hall-place"><span style="color:' + curHall.color + '; background:' + curHall.bg + '"><svg style="fill:' + curHall.color + '"><use xlink:href="' + $('.program-content').attr('data-placeicon') + '"></use></svg>' + curHall.place + '</span></a>';
+                } else {
+                    hallsHTML +=    '<div class="program-hall-place"><span style="color:' + curHall.color + '; background:' + curHall.bg + '"><svg style="fill:' + curHall.color + '"><use xlink:href="' + $('.program-content').attr('data-placeicon') + '"></use></svg>' + curHall.place + '</span></div>';
+                }
             }
             hallsHTML +=        '</div>' +
                             '</div>';
@@ -355,8 +359,12 @@ function updateProgram() {
                 var curEvent = curEvents[j];
                 var isFormat = true;
                 if (curTypes.length != 0) {
-                    if (typeof(curEvent.type) !== 'undefined' && curTypes.indexOf(curEvent.type) == -1) {
+                    if (typeof(curEvent.type) === 'undefined') {
                         isFormat = false;
+                    } else {
+                        if (curTypes.indexOf(curEvent.type) == -1) {
+                            isFormat = false;
+                        }
                     }
                 }
                 if (curEvent.hall == curHall.id && isFormat) {
