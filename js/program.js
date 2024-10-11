@@ -345,7 +345,7 @@ function updateProgram() {
 
         var eventsHTML =    '<div class="program-events">';
 
-        var heightHour = 112;
+        var heightHour = 140;
 
         var curTypes = [];
         $('.program-formats-popup-list input:checked').each(function() {
