@@ -346,6 +346,9 @@ function updateProgram() {
         var eventsHTML =    '<div class="program-events">';
 
         var heightHour = 140;
+        if ($(window).width() < 768) {
+            heightHour = 180;
+        }
 
         var curTypes = [];
         $('.program-formats-popup-list input:checked').each(function() {

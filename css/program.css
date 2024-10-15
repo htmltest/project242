@@ -68,32 +68,20 @@
     .speaker-detail-events-title {margin:60px 0 0 0; font-size:16px; line-height:24px}
 }
 
-.speaker-detail-events-headers {display:flex; margin:20px 0 0 0; font-weight:normal; font-size:12px; line-height:18px; color:#959595; text-transform:uppercase}
-.speaker-detail-events-header:nth-child(1) {min-width:155px; max-width:155px}
-.speaker-detail-events-header:nth-child(2) {min-width:175px; max-width:175px}
-
-@media (max-width:1023px) {
-    .speaker-detail-events-headers {display:none}
-}
-
-.speaker-detail-events {margin:10px 0 0 0; border-bottom:1px solid #F4F4F4}
+.speaker-detail-events {margin:20px 0 0 0; border-bottom:1px solid #F4F4F4}
 .speaker-detail-event {padding:20px 0; border-top:1px solid #F4F4F4}
 .speaker-detail-event-type {display:flex}
 .speaker-detail-event-type span {padding:4px 12px; background:#F0F0F0; border-radius:4px; font-weight:normal; font-size:12px; line-height:18px; letter-spacing:0.05em; text-transform:uppercase; color:#000000}
 .speaker-detail-event-info {margin:10px 0 0 0; display:flex; align-items:center; font:16px/16px Rubik, sans-serif; color:#4E4E4E}
-.speaker-detail-event-info-location {order:1; margin:0 0 0 20px; display:flex; align-items:center}
+.speaker-detail-event-info-location {order:1; margin:0; display:flex; align-items:center}
 .speaker-detail-event-info-hall {padding:7px 12px 5px 12px; border-radius:4px}
 .speaker-detail-event-info-pavilion {margin:0 0 0 20px; padding:2px 0 0 0}
 .speaker-detail-event-info-when {display:flex; align-items:center; padding:2px 0 0 0}
-.speaker-detail-event-info-date {font-weight:bold}
-.speaker-detail-event-info-time {margin:0 0 0 20px}
+.speaker-detail-event-info-date {font-weight:bold; min-width:108px; max-width:108px}
+.speaker-detail-event-info-time {min-width:119px; max-width:119px}
 .speaker-detail-event-title {margin:10px 0 0 0; font-weight:normal; font-size:16px; line-height:24px}
 .speaker-detail-event-title a {color:#FE5602; text-decoration:none; padding:5px 0}
 .speaker-detail-event-title a:hover {text-decoration:underline}
-
-@media (max-width:1023px) {
-    .speaker-detail-events {margin:20px 0 0 0}
-}
 
 @media (max-width:767px) {
     .speaker-detail-event-type span {padding:2px 10px; font-size:10px; line-height:15px}
@@ -102,7 +90,8 @@
     .speaker-detail-event-info-hall {padding:5px 10px}
     .speaker-detail-event-info-pavilion {margin:0 0 0 10px; padding:0}
     .speaker-detail-event-info-when {padding:0 0 0 9px; margin:10px 0 0 0; border-left:1px solid #F0F0F0}
-    .speaker-detail-event-info-time {margin:0 0 0 15px}
+    .speaker-detail-event-info-date {min-width:0; max-width:none}
+    .speaker-detail-event-info-time {margin:0 0 0 15px; min-width:0; max-width:none}
     .speaker-detail-event-title {font-size:12px; line-height:18px}
 }
 
@@ -719,6 +708,10 @@ a.program-hall-place span:hover {opacity:0.7}
 
 @media (max-width:767px) {
     .program-hours {padding:0 50px}
+    .program-hour {height:45px}
+    .program-hour-quarter {height:45px}
+    .program-hour-half {height:45px}
+    .program-hour-three-quarters {height:45px}
     .program-hour span {font-size:12px; line-height:12px; margin-right:5px}
     .program-hour strong {font-size:12px; line-height:12px; margin-left:5px}
     .program-hour-half span {font-size:12px; line-height:12px; margin-right:5px}
